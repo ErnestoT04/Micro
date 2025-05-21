@@ -1,0 +1,273 @@
+[
+    {
+        "id": "550f4d51571298d5",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2b691314154398fd",
+        "type": "ui_button",
+        "z": "550f4d51571298d5",
+        "name": "Subir",
+        "group": "grupo_dashboard",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "label": "⬆️ Subir",
+        "payload": "subir",
+        "payloadType": "str",
+        "topic": "elevador/comando",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "d262300b732952e0"
+            ]
+        ]
+    },
+    {
+        "id": "130428f9c2456737",
+        "type": "ui_button",
+        "z": "550f4d51571298d5",
+        "name": "Bajar",
+        "group": "grupo_dashboard",
+        "order": 2,
+        "width": 2,
+        "height": 1,
+        "label": "⬇️ Bajar",
+        "payload": "bajar",
+        "payloadType": "str",
+        "topic": "elevador/comando",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "d262300b732952e0"
+            ]
+        ]
+    },
+    {
+        "id": "d62e17376ff37082",
+        "type": "ui_button",
+        "z": "550f4d51571298d5",
+        "name": "Detener",
+        "group": "grupo_dashboard",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "label": "⏹️ Detener",
+        "payload": "detener",
+        "payloadType": "str",
+        "topic": "elevador/comando",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "d262300b732952e0"
+            ]
+        ]
+    },
+    {
+        "id": "c56f3278722debc8",
+        "type": "ui_button",
+        "z": "550f4d51571298d5",
+        "name": "Abrir",
+        "group": "grupo_dashboard",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "label": "🚪 Abrir",
+        "payload": "abrir",
+        "payloadType": "str",
+        "topic": "elevador/comando",
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "d262300b732952e0"
+            ]
+        ]
+    },
+    {
+        "id": "2c8c1ab5c7999865",
+        "type": "ui_button",
+        "z": "550f4d51571298d5",
+        "name": "Cerrar",
+        "group": "grupo_dashboard",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "label": "🚪 Cerrar",
+        "payload": "cerrar",
+        "payloadType": "str",
+        "topic": "elevador/comando",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "d262300b732952e0"
+            ]
+        ]
+    },
+    {
+        "id": "4e4167ead73f17b4",
+        "type": "mqtt out",
+        "z": "550f4d51571298d5",
+        "name": "Publicar comando",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "mqtt_broker",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "775f7b3ce2230843",
+        "type": "mqtt in",
+        "z": "550f4d51571298d5",
+        "name": "Estado elevador",
+        "topic": "elevador/estado",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "mqtt_broker",
+        "inputs": 0,
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "7c99b7ec504d35a1"
+            ]
+        ]
+    },
+    {
+        "id": "7c99b7ec504d35a1",
+        "type": "ui_text",
+        "z": "550f4d51571298d5",
+        "group": "grupo_dashboard",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "name": "Texto elevador",
+        "label": "Elevador:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2e92340f45ecbbf3",
+        "type": "mqtt in",
+        "z": "550f4d51571298d5",
+        "name": "Estado puerta",
+        "topic": "puerta/estado",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "mqtt_broker",
+        "inputs": 0,
+        "x": 220,
+        "y": 360,
+        "wires": [
+            [
+                "963d1da8c5d74f97"
+            ]
+        ]
+    },
+    {
+        "id": "963d1da8c5d74f97",
+        "type": "ui_text",
+        "z": "550f4d51571298d5",
+        "group": "grupo_dashboard",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "name": "Texto puerta",
+        "label": "Puerta:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ac5d91a9e9f41cdd",
+        "type": "debug",
+        "z": "550f4d51571298d5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d262300b732952e0",
+        "type": "function",
+        "z": "550f4d51571298d5",
+        "name": "Comando",
+        "func": "return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "4e4167ead73f17b4",
+                "ac5d91a9e9f41cdd"
+            ]
+        ]
+    },
+    {
+        "id": "grupo_dashboard",
+        "type": "ui_group",
+        "name": "Elevador Control",
+        "tab": "tab_dashboard",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Broker EMQX",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "tab_dashboard",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
